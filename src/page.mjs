@@ -3,6 +3,8 @@
 import { readFileSync } from 'node:fs';
 
 const CSS = readFileSync(new URL('./styles.css', import.meta.url), 'utf8');
+// Код партнёрской сети (Travelpayouts Drive). Вставляется только в настоящий сайт, как выдан в кабинете.
+const HEAD_SNIPPET = (() => { try { return readFileSync(new URL('./head-snippet.html', import.meta.url), 'utf8').trim(); } catch { return ''; } })();
 
 const MONTHS_GEN = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 const MONTHS = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'];
@@ -206,7 +208,7 @@ export function renderPage(data, { siteUrl = '', config = {}, fragment = false }
   </main>
   <footer class="foot">
     <p>Источники: погода — <a href="https://www.met.no/en" target="_blank" rel="noopener">MET Norway</a> (CC BY 4.0); волны — модель NOAA WAVEWATCH III через <a href="https://www.pacioos.hawaii.edu/" target="_blank" rel="noopener">PacIOOS</a>; температура воды — NASA JPL MUR SST через NOAA CoastWatch; курсы валют — Банк России.</p>
-    <p>Страница обновляется автоматически несколько раз в день. Это расчётные данные моделей, а не официальный прогноз. Перед выходом в море уточняйте обстановку на месте.</p>
+    ${!fragment && HEAD_SNIPPET ? '<p>На сайте есть партнёрские ссылки Travelpayouts. Если вы что-то купите по ним, сайт получит комиссию, а цена для вас не изменится.</p>\n    ' : ''}<p>Страница обновляется автоматически несколько раз в день. Это расчётные данные моделей, а не официальный прогноз. Перед выходом в море уточняйте обстановку на месте.</p>
   </footer>
 </div>
 <script>${SCRIPT}</script>`;
@@ -230,6 +232,7 @@ ${siteUrl ? `<link rel="canonical" href="${esc(siteUrl)}/">\n<meta property="og:
 <meta name="color-scheme" content="light dark">
 ${fonts}
 <style>${CSS}</style>
+${HEAD_SNIPPET}
 </head>
 <body>${body}
 </body>
