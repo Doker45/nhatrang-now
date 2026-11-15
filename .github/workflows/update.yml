@@ -1,0 +1,59 @@
+name: Обновление сайта
+
+on:
+  schedule:
+    - cron: '17 */3 * * *'   # каждые три часа
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: pages
+        uses: actions/configure-pages@v5
+      - name: Сборка
+        run: node scripts/build.mjs
+        env:
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
+          # MET Norway просит, чтобы клиент называл себя и давал ссылку для связи.
+          USER_AGENT: nhatrang-now/1.0 ${{ github.server_url }}/${{ github.repository }}
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      # Раз в сутки сохраняем данные в репозиторий: это запас на случай сбоя источника
+      # и активность, без которой GitHub через 60 дней отключает расписание.
+      - name: Сохранить данные
+        if: github.event_name == 'schedule'
+        run: |
+          if [ "$(date -u +%H)" -lt 3 ] && ! git diff --quiet -- data/latest.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/latest.json
+            git commit -m "Данные за $(date -u +%F)"
+            git push
+          fi
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

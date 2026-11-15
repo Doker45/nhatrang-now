@@ -1,0 +1,125 @@
+{
+ "fx": {
+  "fetchedAt": "2026-11-15T16:42:10.154Z",
+  "date": "2026-11-14",
+  "rubPerVnd": 0.0032044199999999995,
+  "rubPerUsd": 82.1516
+ },
+ "weather": {
+  "fetchedAt": "2026-11-15T16:42:10.227Z",
+  "current": {
+   "time": "2026-11-15T23:00",
+   "temp": 25.9,
+   "feels": 25.9,
+   "humidity": 93.3,
+   "wind": 4,
+   "windDir": 310.3,
+   "symbol": "partlycloudy_night"
+  },
+  "uv": {
+   "date": "2026-11-16",
+   "value": 9.5
+  },
+  "sun": {
+   "date": "2026-11-15",
+   "sunrise": "05:40",
+   "sunset": "17:14"
+  },
+  "daily": [
+   {
+    "date": "2026-11-16",
+    "symbol": "fair_day",
+    "tmax": 29.6,
+    "tmin": 24.4,
+    "rain": 1.1
+   },
+   {
+    "date": "2026-11-17",
+    "symbol": "lightrainshowers_day",
+    "tmax": 29,
+    "tmin": 25.3,
+    "rain": 5
+   },
+   {
+    "date": "2026-11-18",
+    "symbol": "rainshowers_day",
+    "tmax": 29,
+    "tmin": 24.9,
+    "rain": 14.600000000000001
+   },
+   {
+    "date": "2026-11-19",
+    "symbol": "lightrainshowers_day",
+    "tmax": 29.9,
+    "tmin": 24.3,
+    "rain": 10.4
+   },
+   {
+    "date": "2026-11-20",
+    "symbol": "lightrainshowers_day",
+    "tmax": 29.6,
+    "tmin": 24.4,
+    "rain": 4
+   },
+   {
+    "date": "2026-11-21",
+    "symbol": "rainshowers_day",
+    "tmax": 28.2,
+    "tmin": 23.7,
+    "rain": 15.6
+   },
+   {
+    "date": "2026-11-22",
+    "symbol": "lightrainshowers_day",
+    "tmax": 28.2,
+    "tmin": 23.9,
+    "rain": 9.3
+   }
+  ]
+ },
+ "waves": {
+  "fetchedAt": "2026-11-15T16:42:10.807Z",
+  "current": {
+   "time": "2026-11-16T00:00",
+   "height": 0.84,
+   "period": 6.134969
+  },
+  "daily": [
+   {
+    "date": "2026-11-15",
+    "waveMax": 0.85999995
+   },
+   {
+    "date": "2026-11-16",
+    "waveMax": 0.84
+   },
+   {
+    "date": "2026-11-17",
+    "waveMax": 0.78999996
+   },
+   {
+    "date": "2026-11-18",
+    "waveMax": 1.0799999
+   },
+   {
+    "date": "2026-11-19",
+    "waveMax": 1.42
+   },
+   {
+    "date": "2026-11-20",
+    "waveMax": 1.9599999
+   },
+   {
+    "date": "2026-11-21",
+    "waveMax": 2.36
+   }
+  ]
+ },
+ "sst": {
+  "fetchedAt": "2026-11-15T16:42:10.171Z",
+  "date": "2026-11-14",
+  "water": 28.83,
+  "source": "MUR"
+ },
+ "builtAt": "2026-11-15T16:42:10.807Z"
+}
