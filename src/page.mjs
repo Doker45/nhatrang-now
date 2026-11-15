@@ -20,6 +20,7 @@ const SYMBOLS = {
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const fmt = (x, d = 0) => Number(x).toLocaleString('ru-RU', { minimumFractionDigits: d, maximumFractionDigits: d });
+const monthYear = (ym, names) => `${names[Number(ym.slice(5, 7)) - 1]} ${ym.slice(0, 4)} года`;
 const capital = s => s[0].toUpperCase() + s.slice(1);
 const dayMonth = iso => `${Number(iso.slice(8, 10))} ${MONTHS_GEN[Number(iso.slice(5, 7)) - 1]}`;
 const weekday = iso => WEEKDAYS[new Date(iso.slice(0, 10) + 'T00:00:00Z').getUTCDay()];
@@ -150,7 +151,7 @@ function climateSection(climate, nowIso) {
     <ul class="rows">
       <li class="row month-row head" aria-hidden="true"><span>Месяц</span><span>Воздух ночью и днём</span><span>Осадки за месяц</span><span>Дней с дождём</span></li>${rows}
     </ul>
-    <p class="note">Средние значения за ${climate.from}–${climate.to} годы по наблюдениям метеостанции. День с дождём считается от 1 мм осадков.</p>
+    <p class="note">Средние по наблюдениям метеостанции Нячанга с ${monthYear(climate.from, MONTHS_GEN)} по ${monthYear(climate.through, MONTHS)}. День с дождём считается от 1 мм осадков.</p>
   </section>`;
 }
 
@@ -190,7 +191,7 @@ export function renderPage(data, { siteUrl = '', config = {}, fragment = false }
   const stamp = `${dayMonth(c.time)}, ${c.time.slice(11, 16)}`;
   const description = `Нячанг сейчас: воздух ${fmt(c.temp)}°` +
     (sst ? `, вода ${fmt(sst.water, 1)}°` : '') + (waves ? `, волна в море ${fmt(waves.current.height, 1)} м` : '') +
-    `. Прогноз на неделю и курс донга к рублю.`;
+    `. Прогноз на неделю${climate ? ', погода по месяцам' : ''} и курс донга к рублю.`;
   const fonts = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>` +
     `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Unbounded:wght@400;600&display=swap">`;
   const body = `
@@ -207,7 +208,7 @@ export function renderPage(data, { siteUrl = '', config = {}, fragment = false }
     ${partnersSection(config.partners)}
   </main>
   <footer class="foot">
-    <p>Источники: погода — <a href="https://www.met.no/en" target="_blank" rel="noopener">MET Norway</a> (CC BY 4.0); волны — модель NOAA WAVEWATCH III через <a href="https://www.pacioos.hawaii.edu/" target="_blank" rel="noopener">PacIOOS</a>; температура воды — NASA JPL MUR SST через NOAA CoastWatch; курсы валют — Банк России.</p>
+    <p>Источники: погода — <a href="https://www.met.no/en" target="_blank" rel="noopener">MET Norway</a> (CC BY 4.0); волны — модель NOAA WAVEWATCH III через <a href="https://www.pacioos.hawaii.edu/" target="_blank" rel="noopener">PacIOOS</a>; температура воды — NASA JPL MUR SST через NOAA CoastWatch; климат — наблюдения метеостанции, архив <a href="https://www.ncei.noaa.gov/" target="_blank" rel="noopener">NOAA NCEI</a>; курсы валют — Банк России.</p>
     ${!fragment && HEAD_SNIPPET ? '<p>На сайте есть партнёрские ссылки Travelpayouts. Если вы что-то купите по ним, сайт получит комиссию, а цена для вас не изменится.</p>\n    ' : ''}<p>Страница обновляется автоматически несколько раз в день. Это расчётные данные моделей, а не официальный прогноз. Перед выходом в море уточняйте обстановку на месте.</p>
   </footer>
 </div>

@@ -5,6 +5,7 @@
 //   погода  — MET Norway Locationforecast 2.0 (CC BY 4.0), требует осмысленный User-Agent
 //   волны   — NOAA WAVEWATCH III через PacIOOS ERDDAP
 //   вода    — NASA JPL MUR SST через NOAA CoastWatch ERDDAP (запасной: NOAA OISST)
+//   климат  — наблюдения метеостанции Нячанга, NOAA GSOD (считается отдельно, scripts/climate.mjs)
 //   курсы   — Банк России через cbr-xml-daily.ru
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
@@ -143,7 +144,8 @@ async function readJson(file, fallback) {
 const prev = await readJson(path.join(ROOT, 'data/latest.json'), {});
 const config = await readJson(path.join(ROOT, 'config.json'), {});
 const data = { ...prev };
-// Раздел «по месяцам» появится, когда в data/latest.json будет блок climate из данных метеостанции.
+// Климат считается отдельно скриптом scripts/climate.mjs и хранится в репозитории.
+data.climate = await readJson(path.join(ROOT, 'data/climate.json'), null);
 const report = [];
 
 async function refresh(key, fn, { skip = false } = {}) {

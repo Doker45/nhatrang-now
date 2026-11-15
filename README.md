@@ -19,6 +19,7 @@
 | Погода | MET Norway Locationforecast 2.0 (CC BY 4.0) |
 | Волны | NOAA WAVEWATCH III через PacIOOS ERDDAP |
 | Температура воды | NASA JPL MUR SST через NOAA CoastWatch |
+| Климат по месяцам | Наблюдения метеостанции Нячанга, NOAA GSOD (`scripts/climate.mjs`, результат в `data/climate.json`) |
 | Курсы валют | Банк России |
 
 ## Локальный запуск
