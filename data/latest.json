@@ -1,97 +1,93 @@
 {
  "fx": {
-  "fetchedAt": "2026-11-19T02:31:01.497Z",
-  "date": "2026-11-19",
-  "rubPerVnd": 0.00320502,
-  "rubPerUsd": 82.2281
+  "fetchedAt": "2026-11-20T02:16:49.288Z",
+  "date": "2026-11-20",
+  "rubPerVnd": 0.00319461,
+  "rubPerUsd": 81.929
  },
  "weather": {
-  "fetchedAt": "2026-11-19T02:31:01.545Z",
+  "fetchedAt": "2026-11-20T02:16:51.322Z",
   "current": {
-   "time": "2026-11-19T09:00",
-   "temp": 28.3,
-   "feels": 32.1,
-   "humidity": 74.2,
-   "wind": 10.2,
-   "windDir": 4.9,
-   "symbol": "lightrain"
+   "time": "2026-11-20T09:00",
+   "temp": 28.4,
+   "feels": 31.5,
+   "humidity": 68.5,
+   "wind": 9.5,
+   "windDir": 328.8,
+   "symbol": "cloudy"
   },
   "uv": {
-   "date": "2026-11-19",
-   "value": 9.1
+   "date": "2026-11-20",
+   "value": 8.9
   },
   "sun": {
-   "date": "2026-11-19",
+   "date": "2026-11-20",
    "sunrise": "05:42",
    "sunset": "17:14"
   },
   "daily": [
    {
-    "date": "2026-11-19",
-    "symbol": "lightrainshowers_day",
-    "tmax": 30.1,
-    "tmin": 24.8,
-    "rain": 7
-   },
-   {
     "date": "2026-11-20",
-    "symbol": "lightrainshowers_day",
-    "tmax": 28.9,
-    "tmin": 23.8,
-    "rain": 11.5
+    "symbol": "partlycloudy_day",
+    "tmax": 30,
+    "tmin": 26.3,
+    "rain": 0.9
    },
    {
     "date": "2026-11-21",
     "symbol": "lightrainshowers_day",
-    "tmax": 28.1,
-    "tmin": 24.1,
-    "rain": 21.4
+    "tmax": 28.8,
+    "tmin": 24.3,
+    "rain": 6.8
    },
    {
     "date": "2026-11-22",
     "symbol": "lightrainshowers_day",
-    "tmax": 29.2,
-    "tmin": 23.8,
-    "rain": 7.3
+    "tmax": 29.3,
+    "tmin": 24.2,
+    "rain": 10.5
    },
    {
     "date": "2026-11-23",
-    "symbol": "partlycloudy_day",
-    "tmax": 29.5,
-    "tmin": 24.7,
-    "rain": 0.5
+    "symbol": "lightrainshowers_day",
+    "tmax": 29.2,
+    "tmin": 24.4,
+    "rain": 1.7000000000000002
    },
    {
     "date": "2026-11-24",
     "symbol": "lightrainshowers_day",
-    "tmax": 29.4,
-    "tmin": 25.3,
-    "rain": 1.1
+    "tmax": 29.7,
+    "tmin": 25,
+    "rain": 1.5
    },
    {
     "date": "2026-11-25",
     "symbol": "lightrainshowers_day",
-    "tmax": 29.2,
+    "tmax": 29.4,
+    "tmin": 24.9,
+    "rain": 0.8999999999999999
+   },
+   {
+    "date": "2026-11-26",
+    "symbol": "lightrainshowers_day",
+    "tmax": 29,
     "tmin": 24.7,
-    "rain": 3.4
+    "rain": 1.9
    }
   ]
  },
  "waves": {
-  "fetchedAt": "2026-11-19T02:31:05.815Z",
+  "fetchedAt": "2026-11-20T02:16:49.102Z",
   "current": {
-   "time": "2026-11-19T10:00",
-   "height": 1.43,
-   "period": 5.9523807
+   "time": "2026-11-20T09:00",
+   "height": 2.01,
+   "period": 7.194244
   },
   "daily": [
    {
-    "date": "2026-11-19",
-    "waveMax": 1.8299999
-   },
-   {
     "date": "2026-11-20",
-    "waveMax": 2.03
+    "waveMax": 2.02
    },
    {
     "date": "2026-11-21",
@@ -121,7 +117,7 @@
   "water": 28.699,
   "source": "MUR"
  },
- "builtAt": "2026-11-19T02:31:05.815Z",
+ "builtAt": "2026-11-20T02:17:05.413Z",
  "climate": {
   "fetchedAt": "2026-11-15T17:02:05.978Z",
   "station": "48877099999",
